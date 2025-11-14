@@ -47,6 +47,8 @@ for ($i = 0; $i < 1002; $i++) {
 }
 $table->display();
 
+// ------    find() TESTI ----------
+
 //6.Tiek meklēts elements pēc atslēgas ar elementiem dažādos spaiņos
 echo "\nTEST 6\n";
 $table6 = new HashTable(1);
@@ -55,8 +57,6 @@ $table6->add(2, 99);
 $table6->add(3, 89);
 $table6->add(4, 79);
 echo $table6->find(3);
-
-// ------    find() TESTI ----------
 
 //7.Tiek meklēts elements pēc atslēgas ar kolīziju
 echo "\nTEST 7\n";
