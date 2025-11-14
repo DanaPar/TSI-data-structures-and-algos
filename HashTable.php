@@ -22,6 +22,7 @@ class HashTable{
         //pārbauda vai atslēga ir ievadīta kā skaitlis
         if(!is_int($key)){
             echo"Atslēgai jābūt veselam skaitlim!\n";
+            return null;
         }
         return $key % ($this->dayOfWeek + 3);
     }
@@ -34,6 +35,11 @@ class HashTable{
         }
         //aprēķina 'spaiņa indeksu'
         $index = $this->hash($key);
+
+        //pārbauda vai hash izdevās
+        if($index === null){
+            return;
+        }
         //ja 'spainis' neeksistē, tiek izveidots jauns saistītais saraksta
         if (!isset($this->buckets[$index])) {
             $this->buckets[$index] = new LinkedList();
@@ -50,12 +56,22 @@ class HashTable{
     //atrod elementu pēc atslēgas
     public function find($key) {
         $index = $this->hash($key);
-        if (!isset($this->buckets[$index])) {
-            echo "Atslēga $key nav atrasta!\n";
-
-        } else {
-            $result =  $this->buckets[$index]->find($key);
+        //pārbauda vai hash izdevās
+        if($index === null){
+            return null;
         }
+
+        if (!isset($this->buckets[$index])) {
+            echo "Spainis atslēgai $key neeksistē, atslēgas nav!\n";
+            return null;
+        }
+
+        $result =  $this->buckets[$index]->find($key);
+
+        if($result === null){
+            echo "Atslēga $key nav atrasta!\n";
+        }
+
         return $result;
     }
 
@@ -64,7 +80,7 @@ class HashTable{
 
         //pārbauda vai 'spainis' eksistē, ja nē atslēgas nav
         if(!isset($this->buckets[$index])){
-            echo "Atslēga $key nav atrasta!\n";
+            echo "Spainis atslēgai $key neeksistē, atslēgas nav!\n";
             return;
         }
         //pārbauda vai atslēga eksistē
