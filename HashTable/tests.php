@@ -1,6 +1,5 @@
 <?php
 require_once 'HashTable.php';
-require_once 'LinkedList.php';
 
 // ------    add() TESTI ----------
 
@@ -56,7 +55,7 @@ $table6->add(1, 12);
 $table6->add(2, 99);
 $table6->add(3, 89);
 $table6->add(4, 79);
-echo $table6->find(3);
+echo $table6->find(3) . "\n";
 
 //7.Tiek meklēts elements pēc atslēgas ar kolīziju
 echo "\nTEST 7\n";
@@ -67,7 +66,7 @@ $table7->add(3, 89);
 $table7->add(6, 79);
 $table7->add(7, 100);
 $table7->add(96, 50);
-echo $table7->find(6);
+echo $table7->find(6) . "\n";
 
 //8.Tiek meklēta neeksistējoša atslēga (eksistējošā spainī)
 echo "\nTEST 8\n";
