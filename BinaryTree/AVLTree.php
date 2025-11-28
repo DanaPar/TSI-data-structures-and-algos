@@ -45,8 +45,6 @@ class AVLTree {
         }
     }
 
-
-
     // --- ROTĀCIJAS METODES --- //
 
     //veic kreiso rotāciju mezglam Z
@@ -108,13 +106,12 @@ class AVLTree {
         return $node;
     }
 
-
     // --- IEVIETOŠANA --- //
     public function insert($data) {
         $this->root = $this->recursionInsert($this->root, $data);
     }
 
-    //rekursīvā metode elementa pievienosanai
+    //rekursīvā metode elementa pievienošanai
     private function recursionInsert($node, $data) {
         if($node === null) {
             return new Node($data);
@@ -155,7 +152,7 @@ class AVLTree {
         } elseif ($data > $node->data) {
             $node->right = $this->recursionDelete($node->right, $data);
         }
-        //kad mezgls atrasts, kas jādzēš
+        //kad mezgls, kas jādzēš, atrasts
         else {
             //gadījums ar vienu child vai bez
             if ($node->left === null || $node->right === null) {
@@ -167,7 +164,6 @@ class AVLTree {
                 $temp = $this->minNode($node->right);
                 $node->data = $temp->data; //aizstājam vērtību
                 $node->right = $this->recursionDelete($node->right, $temp->data); //izdzēš aizstājēju
-
             }
         }
         if($node === null) {
@@ -243,7 +239,6 @@ class AVLTree {
             $queue = $nextQueue;
         }
     }
-
 }
 
 

@@ -1,6 +1,8 @@
 <?php
 require_once "AVLTree.php";
 
+// --- ROTĀCIJU TESTI --- //
+
 //2.1 Pārbauda LL rotāciju
 echo "TESTS 2.1: \n";
 $tree = new AVLTree();
