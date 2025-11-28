@@ -13,7 +13,7 @@ foreach ($elements as $element) {
 }
 $avlTree->display();
 
-//1.2 Lapas mezgla dzēšana 0 child
+//1.2 Lapas elementa dzēšana 0 child
 echo "\nTESTS 1.2: \n";
 $avlTree->delete(5);
 $avlTree->display();

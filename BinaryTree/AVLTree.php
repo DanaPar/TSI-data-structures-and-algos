@@ -10,7 +10,7 @@ class Node {
         $this->data = $data;
         $this->right = null;
         $this->left = null;
-        $this->height = 1; //jaunie mezgli ir "lapas", tātad augstums 1
+        $this->height = 1; //jaunie elementi ir "lapas", tātad augstums 1
     }
 }
 
@@ -31,7 +31,7 @@ class AVLTree {
         }
     }
 
-    //atjauno mezgla augstumu atkarībā no tā child-mezglu augstumiem
+    //atjauno elementa augstumu atkarībā no tā child-elementu augstumiem
     private function updateHeight($node) {
         $node->height = 1 + max($this->getHeight($node->left), $this->getHeight($node->right));
     }
@@ -47,7 +47,7 @@ class AVLTree {
 
     // --- ROTĀCIJAS METODES --- //
 
-    //veic kreiso rotāciju mezglam Z
+    //veic kreiso rotāciju elementam Z
     private function rotateLeft($z) {
         $y = $z->right;
         $T2 = $y->left;
@@ -61,7 +61,7 @@ class AVLTree {
         return $y;
     }
 
-    //veica labo rotāciju mezglam Z
+    //veica labo rotāciju elementam Z
     private function rotateRight($z) {
         $y = $z->left;
         $T2 = $y->right;
@@ -75,7 +75,7 @@ class AVLTree {
         return $y;
     }
 
-    // pārbalansē mezglu pēc ievietošanas/dzēšanas atkarībā no balansa
+    // pārbalansē elementu pēc ievietošanas/dzēšanas atkarībā no balansa
     private function balance ($node) {
         //vienmēr jāatjauno augstumu pirms balansa pārbaudīšanas
         $this->updateHeight($node);
@@ -152,7 +152,7 @@ class AVLTree {
         } elseif ($data > $node->data) {
             $node->right = $this->recursionDelete($node->right, $data);
         }
-        //kad mezgls, kas jādzēš, atrasts
+        //kad elements, kas jādzēš, atrasts
         else {
             //gadījums ar vienu child vai bez
             if ($node->left === null || $node->right === null) {
@@ -183,7 +183,7 @@ class AVLTree {
 
         $treeHeight = $this->getHeight($this->root);
 
-        //rinda glabā mezglus
+        //rinda glabā elementus
         $queue = [$this->root];
 
         // sākotējo atstarpju aprēķins
