@@ -17,7 +17,7 @@ foreach ($elements as $element) {
 //3.2 Pārbauda monotoniski dilstošu secību
 echo "\nTESTS 3.2: \n";
 $tree2 = new AVLTree();
-$elements2 = [1, 2, 3, 4, 5];
+$elements2 = [5, 4, 3, 2, 1];
 
 foreach ($elements2 as $element) {
     echo "adding $element:\n";
@@ -43,3 +43,13 @@ $tree4->display();
 echo "deleting 10: \n";
 $tree4->delete(10);
 $tree4->display();
+echo "\n";
+
+//3.5. Pārbauda, kas notiek ja lietotājs ievada burtus nevis skaitļus
+echo "\nTESTS 3.5: \n";
+$tree5 = new AVLTree();$elements5 = ["A", "C", "B"];
+foreach ($elements5 as $element) {
+    echo "\nadding $element:\n";
+    $tree5->insert($element);
+    $tree5->display();
+}

@@ -28,7 +28,7 @@ echo "\nTESTS 1.4: \n";
 $avlTree->delete(20);
 $avlTree->display();
 
-//1.7 Saknes dzēšana
-echo "\nTESTS 1.4: \n";
+//1.5 Saknes dzēšana
+echo "\nTESTS 1.5: \n";
 $avlTree->delete(15);
 $avlTree->display();
